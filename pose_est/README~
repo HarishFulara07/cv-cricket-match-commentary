@@ -1,0 +1,39 @@
+Fine-Tuning Human Pose Estimations in Videos
+============================================
+This implementation is provided by the authors of [1].
+
+
+NOTE
+====
+In this implementation we have seeded the randomization to produce consistent results in every run.
+The obtained performance score can be very marginally different from mentioned in the paper.
+
+
+Using the code
+==============
+The code is provided in MATLAB and is self-sufficient to run for full human parsing.
+For upper body parsing, half body datasets like Poses in the Wild [3] can be downloaded and tested.
+
+- start matlab in code directory
+
+- run "run_full" to run full body parsing on a sample video sequence from our dataset.
+  (To validate: sample sequence "test7" should give a final PCK score : 65.50% and post-processor PCK : 66.28%)
+
+- run "run_half" to run upper body parsing. This code needs dataset and gt annotations and WILL NOT run straight-away.
+  Half body datasets like Poses in the Wild [3] and VideoPose [4] can be downloaded and evaluated.
+
+- The final output will be stored in "CACHE/test_dir/detections_final".
+
+
+References
+==========
+
+[1] D. Singh, V. Balasubramanian, C. V. Jawahar. Fine-Tuning Human Pose Estimations in Videos . WACV 2016.
+
+[2] Y. Yang, D. Ramanan. Articulated Pose Estimation using Flexible Mixtures of Parts. CVPR 2011.
+
+[3] A. Cherian, J. Marial, K. Alahari, C. SchMixing Body-Part Sequences for Human Pose Estimation. CVPR 2014.
+
+[4]
+
+[5] T. Malisiewicz, A. Gupta, A. Efros. Ensemble of Exemplar-SVMs for Object Detection and Beyond. ICCV 2011.
