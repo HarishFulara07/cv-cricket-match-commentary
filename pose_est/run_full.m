@@ -1,4 +1,4 @@
-function pose_mat = run_full(vid_dir, img_name, show_pose_img)
+function [pose_mat, height, width] = run_full(vid_dir, img_name, show_pose_img)
 % run_full : run "Fine-Tuning Human Pose Estimation" for video sequences
 % video_dir : directory containing the frames extracted from the video.
 % img_name : Extension of images in video_dir (for e.g., .jpg, .png, etc.)
@@ -72,11 +72,12 @@ img_name_without_ext = char(img_name_without_ext(1));
 load_path = sprintf('/home/harish/CV/cv-cricket-match-commentary/pose_est/CACHE/%s/detections_final/%s_pose.mat', vid_dir, img_name_without_ext);
 load(load_path);
 pose_mat = boxes(1:104);
+img_dir = sprintf('dataset/%s/%s', vid_dir, img_name);
+img = imread(img_dir);
+[height, width, ~] = size(img);
 if show_pose_img
     pose_mat_y = pose_mat(2:2:end);
     pose_mat_x = pose_mat(1:2:end);
-    img_dir = sprintf('dataset/%s/%s', vid_dir, img_name);
-    img = imread(img_dir);
     imshow(img);
     hold on;
     plt = plot(pose_mat_x, pose_mat_y, 'r*', 'LineWidth', 2, 'MarkerSize', 2);
