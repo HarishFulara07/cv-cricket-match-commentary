@@ -1,0 +1,32 @@
+Ref: https://en.wikipedia.org/wiki/Batting_(cricket)#/media/File:Cricket_shots.svg
+
+0. Batsman preparing for shot
+1. Cover Drive
+2. Straight Drive
+3. Pull Shot
+4. Hook Shot
+5. Cut shot (Cut + Square Cut + Square Drive + Late Cut Shot)
+6. Off Drive Shot
+7. On Drive Shot
+
+# Features
+
+1. 52 vector points corresponding to the pose.
+2. Orientation of the bat.
+
+# Steps
+
+1. Segregate action frames - if would be best if we can get the frame where the batsman plays the shot or just before playing the shot or just after playing the shot.
+2. Extract out batsman from the action frame.
+3. Annotate the videos (Not enough videos on youtube).
+4. Compute pose using pre downloaded code - 52 vector points corresponding to the pose.
+5. [OPTIONAL] Get orientation of the bat.
+6. Train a ML model.
+
+# EVALUATION
+
+Run the whole pipeline on a video.
+
+# LIMITATIONS
+
+1. Only batsman should be in the frame for proper pose detection. If keeper is close to the wickets, this is very difficult. System is good for fast bowling - when keeper is behind.
