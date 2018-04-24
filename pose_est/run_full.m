@@ -1,7 +1,7 @@
 function pose_mat = run_full(vid_dir, img_name, show_pose_img)
 % run_full : run "Fine-Tuning Human Pose Estimation" for video sequences
 % video_dir : directory containing the frames extracted from the video.
-% img_ext : Extension of images in video_dir (for e.g., .jpg, .png, etc.)
+% img_name : Extension of images in video_dir (for e.g., .jpg, .png, etc.)
 % show_pose_img: Whether to show the image with pose vectors plotted on it.
 % pose setting: Full Human Body parts
 
@@ -69,7 +69,7 @@ system(cmnd);
 fprintf('Done!\n');
 img_name_without_ext = strsplit(img_name, '.');
 img_name_without_ext = char(img_name_without_ext(1));
-load_path = sprintf('/home/harish/CV/Project/pose_est/fine_tuning_pose/CACHE/%s/detections_final/%s_pose.mat', vid_dir, img_name_without_ext);
+load_path = sprintf('/home/harish/CV/cv-cricket-match-commentary/pose_est/CACHE/%s/detections_final/%s_pose.mat', vid_dir, img_name_without_ext);
 load(load_path);
 pose_mat = boxes(1:104);
 if show_pose_img
