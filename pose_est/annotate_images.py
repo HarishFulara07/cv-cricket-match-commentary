@@ -5,6 +5,18 @@ import glob
 def annotate_training_images(_image_dataset_path):
     _images_path = [_img for _img in glob.glob(_image_dataset_path + "/*.png")]
 
+    _annotated_images_paths = ['dataset/-1/*.png', 'dataset/0/*.png', 
+        'dataset/1/*.png', 'dataset/2/*.png', 'dataset/3/*.png', 
+        'dataset/4/*.png', 'dataset/5/*.png', 'dataset/6/*.png', 
+        'dataset/7/*.png']
+
+    # Don't annotate the already annotated images.
+    for _img_path in _annotated_images_paths:
+        _annotated_images_name = [_img.split('/')[-1] for _img in glob.glob(_img_path)]
+        for _image_name in _annotated_images_name:
+            _image_name = 'dataset/test/' + _image_name
+            _images_path.remove(_image_name)
+
     for _image_path in _images_path:
         _img = cv2.imread(_image_path)
         while(1):
@@ -27,6 +39,8 @@ def annotate_training_images(_image_dataset_path):
                 cv2.imwrite('dataset/6/' + _img_name, _img)
             elif _key_pressed == 55:    # 7 Key pressed.
                 cv2.imwrite('dataset/7/' + _img_name, _img)
+            elif _key_pressed == 56:    # 8 Key pressed. These are wrong/bad images.
+                cv2.imwrite('dataset/-1/' + _img_name, _img)
             else:
                 continue
             break
