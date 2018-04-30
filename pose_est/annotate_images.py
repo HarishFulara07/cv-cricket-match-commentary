@@ -7,8 +7,7 @@ def annotate_training_images(_image_dataset_path):
 
     _annotated_images_paths = ['dataset/-1/*.png', 'dataset/0/*.png', 
         'dataset/1/*.png', 'dataset/2/*.png', 'dataset/3/*.png', 
-        'dataset/4/*.png', 'dataset/5/*.png', 'dataset/6/*.png', 
-        'dataset/7/*.png']
+        'dataset/4/*.png', 'dataset/5/*.png', 'dataset/6/*.png']
 
     # Don't annotate the already annotated images.
     for _img_path in _annotated_images_paths:
@@ -37,9 +36,7 @@ def annotate_training_images(_image_dataset_path):
                 cv2.imwrite('dataset/5/' + _img_name, _img)
             elif _key_pressed == 54:    # 6 Key pressed.
                 cv2.imwrite('dataset/6/' + _img_name, _img)
-            elif _key_pressed == 55:    # 7 Key pressed.
-                cv2.imwrite('dataset/7/' + _img_name, _img)
-            elif _key_pressed == 56:    # 8 Key pressed. These are wrong/bad images.
+            elif _key_pressed == 55:    # 7 Key pressed. These are wrong/bad images.
                 cv2.imwrite('dataset/-1/' + _img_name, _img)
             else:
                 continue

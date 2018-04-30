@@ -3,11 +3,10 @@ Ref: https://en.wikipedia.org/wiki/Batting_(cricket)#/media/File:Cricket_shots.s
 0. Batsman preparing for shot
 1. Cover Drive
 2. Straight Drive
-3. Pull Shot
-4. Hook Shot
-5. Cut shot (Cut + Square Cut + Square Drive + Late Cut Shot)
-6. Off Drive Shot
-7. On Drive Shot
+3. Pull Shot/Hook Shot
+4. Cut shot (Cut + Square Cut + Square Drive + Late Cut Shot)
+5. Off Drive Shot
+6. On Drive Shot
 
 # Features
 

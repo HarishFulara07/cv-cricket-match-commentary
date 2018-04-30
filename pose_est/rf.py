@@ -1,5 +1,5 @@
 from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 from sklearn.model_selection import StratifiedKFold
@@ -17,11 +17,13 @@ if __name__ == '__main__':
 	X_train, X_test, y_train, y_test = train_test_split(X, y, 
 		train_size=0.7, test_size=0.3, random_state=7)
 
-	_reg_params = [0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100]
-	_kernel_params = ['linear', 'rbf']
+	_n_estimators_params = [10, 20, 30]
+	_max_depth_params = [None, 5, 10]
+	_min_samples_split_params = [2, 5, 10]
 	_skf = StratifiedKFold(n_splits=5)
-	_svm_params = [{'C': _reg_params, 'kernel': _kernel_params}]
-	_clf = GridSearchCV(SVC(), _svm_params, cv=_skf, scoring='f1_weighted', n_jobs=2)
+	_rf_params = [{'n_estimators': _n_estimators_params, 'max_depth': _max_depth_params,
+		'min_samples_split': _min_samples_split_params}]
+	_clf = GridSearchCV(RandomForestClassifier(), _rf_params, cv=_skf, scoring='f1_weighted', n_jobs=2)
 	# _clf = SVC(kernel='linear')
 	_clf.fit(X_train, y_train)
 	_scores = _clf.cv_results_['mean_test_score']
