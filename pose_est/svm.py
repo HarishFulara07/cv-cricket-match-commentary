@@ -3,6 +3,7 @@ from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 from sklearn.model_selection import StratifiedKFold
+from sklearn.externals import joblib
 
 import h5py
 
@@ -28,6 +29,7 @@ if __name__ == '__main__':
 	print('F1 Scores: {}'.format(_scores))
 
 	_best_clf = _clf.best_estimator_
+	joblib.dump(_best_clf, 'dataset/svm.pkl')
 	y_pred = _best_clf.predict(X_test)
 	# y_pred = _clf.predict(X_test)
 	print(classification_report(y_test, y_pred))
